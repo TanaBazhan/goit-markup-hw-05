@@ -55,7 +55,7 @@
         <section class="hero">
             <div class="container hero-container">
                 <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-                <button class="hero-button btn" type="button">заказать услугу</button>
+                <button class="hero-button btn" type="button" data-modal-open >заказать услугу</button>
             </div>
         </section>
         <!-- features section -->
@@ -110,9 +110,18 @@
             <div class="container images-container">
             <h2 class="images-title">Чем мы занимаемся</h2>
             <ul class="images-list list">
-                <li class="images-item"><img src="./img/img1-min.jpg" alt="Блок схема і процес написання коду" Width="370" Height="294"></li>
-                <li class="images-item"><img src="./img/img2-min.jpg" alt="Смартфон підключений до ноутбука" Width="370" Height="294"></li>
-                <li class="images-item"><img src="./img/img3-min.jpg" alt="Кольорова палітра на планшеті" Width="370" Height="294"></li>
+                <li class="images-item">
+                    <img src="./img/img1-min.jpg" alt="Блок схема і процес написання коду" Width="370" Height="294">
+                    <p class="images-text">Десктопные приложения</p>
+                </li>
+                <li class="images-item">
+                    <img src="./img/img2-min.jpg" alt="Смартфон підключений до ноутбука" Width="370" Height="294">
+                    <p class="images-text">Мобильные приложения</p>
+                </li>
+                <li class="images-item">
+                    <img src="./img/img3-min.jpg" alt="Кольорова палітра на планшеті" Width="370" Height="294">
+                    <p class="images-text">Дизайнерские решения</p>
+                </li>
             </ul>
         </div>
         </section>
@@ -338,6 +347,16 @@
         </div>
     
     </footer>
+    <div class="backdrop is-hidden" data-modal >
+        <div class="modal">
+            <button class="button-close" type="button" data-modal-close>
+                <svg class="icon-close icon" width="30" height="30">
+                    <use href="./img/sprite.svg#icon-close">
+                    </use>
+                </svg>
+            </button>
+        </div>
+    </div>
     <script src="./js/modal.js"></script>
 </body>
 </html>
