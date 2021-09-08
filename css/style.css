@@ -8,19 +8,6 @@ ul {
   margin-bottom: 0;
   padding-left: 0;
 }
-@keyframes appear {
-  0% { 
-    transform: translate3D(0, 0, -1);
-   }
-  25% { 
-    transform: translate3D(0, 25%, -1);
-    }
-  50% {transform: translate3D(0, 50%, 0);
-    }
-  100% { 
-      transform: translate3D(0, 100%, 0);
-   }
-  }
 :root {
   --primery-background-color:#FFFFFF;
   --secondary-background-color:#E5E5E5;
@@ -72,7 +59,6 @@ border-bottom: 1px solid #ECECEC;
 .link {
   text-decoration: none;
 }
-
 .header-logo {
   font-family: Raleway;
   font-weight: bold;
@@ -85,6 +71,7 @@ margin-right: 93px;
 transition-property: transform;
 }
 .header-logo:hover {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: scale(1.25);
 }
 .main-navigation {
@@ -102,12 +89,19 @@ font-weight: 500;
 font-size: 14px;
 line-height: 1.14;
 letter-spacing: 0.02em;
-
 color: var(--secondary-title-color);
 }
 .header-link:hover,
 .header-link:focus {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 color: var(--accent-color);
+}
+.active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  background-color: var(--accent-color) ;
+  height: 1px;
 }
 .header-right {
   margin-left: auto;
@@ -357,13 +351,14 @@ color: var(--main-text-color);
 .icon-list {
   display: flex;
   width: 206px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-left: 32px;
   margin-bottom: 30px;
+  margin-left: 32px;
 }
 .icon-group:hover,
 .icon-group:focus {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 color: var(--main-title-color);
 background-color: var(--accent-color);
 }
@@ -375,6 +370,9 @@ background-color: var(--accent-color);
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+}
+.group {
+  fill: currentColor;
 }
 .container-customers {
 justify-content: center;
@@ -396,6 +394,7 @@ margin-bottom: 50px;
 }
 .icon-group-customers:focus,
 .icon-group-customers:hover {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--accent-color);
   border: 1px solid var(--accent-color);
 }
@@ -445,6 +444,7 @@ color: rgba(255, 255, 255, 0.6);
 }
 .contacts-link:hover,
 .contacts-link:focus {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 color: var(--accent-color);
 }
 .contacts-logo {
@@ -492,6 +492,7 @@ span {
 }
 .footer-link:hover,
 .footer-link:focus {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: var(--accent-color);
 }
   .footer-link {
@@ -526,6 +527,7 @@ align-items: center;
 }
 .portfolio-hero-button:focus,
 .portfolio-hero-button:hover {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--main-title-color);
   background-color: var(--accent-color);
 }
@@ -549,7 +551,8 @@ border-radius: 4px;
   margin-top: 34px;
 }
 .our-products-item:hover {
-  background: #FFFFFF;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-sizing 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #FFFFFF;
   box-sizing: border-box;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
@@ -565,17 +568,12 @@ border-radius: 4px;
   display: flex;
   width: 370px;
 height: 294px;
-transform-style: preserve-3d;
+overflow: hidden;
 }
-.product-container:hover .text-product
+.our-products-item:hover .text-product
 {
-  animation-name: appear;
-  animation-duration: 2s;
-  animation-timing-function: linear ;
-  animation-iteration-count: 1;
-  animation-direction: reverse;
-  animation-fill-mode: forwards;
-  z-index: 0;
+  transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0%) ;
 }
 .text-product {
   display: inline-block;
@@ -591,7 +589,8 @@ transform-style: preserve-3d;
   color: #FFFFFF;
   background-color: rgba(33, 150, 243, 0.9);
   padding: 63px 24px;
-  z-index: -1;
+  transition: transform 2s cubic-bezier(0.47, 0, 0.745, 0.715) ;
+  transform: translateY(294px);
 }
 .our-products-item:not(:nth-child(3n)) {
   margin-right: 27px;
@@ -600,7 +599,6 @@ transform-style: preserve-3d;
 padding: 20px 24px;
 position: relative;
 background-color: var(--primery-background-color );
-z-index: 1;
 }
 .our-products-title {
   font-weight: bold;
